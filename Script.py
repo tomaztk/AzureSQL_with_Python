@@ -24,17 +24,14 @@ credential = ClientSecretCredential(
     client_id=CLIENT_ID,
     client_secret=CLIENT_SECRET
 )
-
-# Create clients
+#clients, resource groups and server
 resource_client = ResourceManagementClient(credential, SUBSCRIPTION_ID)
 sql_client = SqlManagementClient(credential, SUBSCRIPTION_ID)
 
-# Create the resource group
 resource_group_params = {'location': LOCATION}
 resource_client.resource_groups.create_or_update(RESOURCE_GROUP_NAME, resource_group_params)
 print(f'Resource group {RESOURCE_GROUP_NAME} created or updated.')
 
-# Create the SQL server
 server_params = Server(
     location=LOCATION,
     administrator_login=SQL_SERVER_ADMIN_USER,
@@ -44,7 +41,7 @@ server_params = Server(
 sql_client.servers.create_or_update(RESOURCE_GROUP_NAME, SQL_SERVER_NAME, server_params)
 print(f'SQL server {SQL_SERVER_NAME} created or updated.')
 
-# Create the SQL database
+
 database_params = Database(
     location=LOCATION,
     properties=DatabaseProperties(collation='SQL_Latin1_General_CP1_CI_AS')
