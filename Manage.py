@@ -11,7 +11,6 @@ from azure.identity import DefaultAzureCredential
 from azure.mgmt.sql import SqlManagementClient
 from azure.mgmt.resource import ResourceManagementClient
 
-
 def main():
 
     SUBSCRIPTION_ID = os.environ.get("SUBSCRIPTION_ID", None)
@@ -36,7 +35,6 @@ def main():
         GROUP_NAME,
         {"location": "eastus"}
     )
-
     # - init depended resources -
     # Create Server
     server = sql_client.servers.begin_create_or_update(
