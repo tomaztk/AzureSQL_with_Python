@@ -8,7 +8,6 @@ for row in rows:
     print(row)
 
 
-
 ## random snippet with connection string
 
 from sqlalchemy import create_engine

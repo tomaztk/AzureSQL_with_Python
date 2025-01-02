@@ -21,6 +21,7 @@ print("User and permissions configured.")
 
 ############################################
 # Firewall rule!!! if necessary
+# no config for private link    
 sql_client.firewall_rules.begin_create_or_update(
     resource_group_name,
     server_name,
